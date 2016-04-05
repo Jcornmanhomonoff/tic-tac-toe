@@ -1,0 +1,17 @@
+$background: #008000;
+$deepskyblue: #00bfff;
+$white: #fff;
+$navcolor: rgba(255, 255, 255, .3);
+$navborder: rgba(0, 0, 0, .1);
+$black: #000;
+
+//takes in color, %, and returns mix with white to lighten
+@function tint($color, $percentage) {
+  @return mix($white, $color, $percentage);
+}
+
+
+//takes in color, %, and returns mix with black to darken
+@function shade($color, $percentage) {
+  @return mix($black, $color, $percentage);
+}
