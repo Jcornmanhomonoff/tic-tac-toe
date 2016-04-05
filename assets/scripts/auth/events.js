@@ -23,4 +23,5 @@ let winArray= [
 let turnClick = 0;
 
 $('.available').on("click", function(){
-  turnClick ++;};
+  console.log(turnClick ++);
+});
