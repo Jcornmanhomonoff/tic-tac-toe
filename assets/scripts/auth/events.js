@@ -19,9 +19,3 @@ let winArray= [
   leftDiagWin,
   rightDiagWin,
 ];
-
-let turnClick = 0;
-
-$('.available').on("click", function(){
-  console.log(turnClick ++);
-});

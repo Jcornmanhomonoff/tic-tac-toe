@@ -1,8 +1,8 @@
 'use strict';
 
-// const authEvents = require('./auth/events.js');
+let turnClick = 0;
 
-// On document ready
-$(() => {
-  authEvents.addHandlers();
+$('.available').on('click', function(){
+  let currentCell = $(this);
+  console.log(turnClick++);
 });
