@@ -2,11 +2,22 @@
 
 const winnerFunction = require('./winner.js');
 
+//SUB-MENU
+
+// $('.sub-menu').on('click', function(){
+//   if ($('.sub-menu').is( ":hidden" )){
+//     $('sub-menu').slideDown("slow");
+//   }else {
+//     $('.sub-menu').hide();
+//   }
+// });
+
+//TIC-TAC-TOE BOARD FUNCTIONS
+
 let turnClick = 0;
 //
 let players = ['player-x', 'player-o'];
 let player = '';
-
 
 //counts clicks & alternates players
 $('.available').on('click', function(){
@@ -29,7 +40,7 @@ $('.box').on('click', function(){
     }else {
       currentCell.addClass('player-o');
     }
-    winnerFunction.winner();
+    // winnerFunction.winner();
     turnClick++;
     console.log(turnClick);
   }

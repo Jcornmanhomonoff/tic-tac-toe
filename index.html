@@ -10,14 +10,40 @@
   <header>
     <ul class="navigation">
       <li><a href="#">New Game</a></li>
-      <li><a href="#">Sign In</a>
-        <ul class="sub-menu">
+      <li><a href="#">
+        <form id="sign-in">
+          <fieldset>
+            <legend>Sign in!</legend>
+            <input type="text" name="credentials[email]" value="" placeholder="email">
+            <input type="password" name="credentials[password]" value="" placeholder="password">
+            <input type="submit" name="submit" value="Sign in!">
+          </fieldset>
+        </form>
+      </a>
+      <!--<ul class="sub-menu">
           <li><a href="#">Email</a></li>
           <li><a href="#">Password</a></li>
         </ul>
-      </li>
-      <li><a href="#">Sign Out</a></li>
-      <li><a href="#">Sign Up</a></li>
+      </li> -->
+      <li><a href="#">
+        <form id="sign-out">
+          <fieldset>
+            <legend>Sign Out!</legend>
+            <input type="submit" name="submit" value="Sign Out!">
+          </fieldset>
+        </form>
+      </a></li>
+      <li><a href="#">
+        <form id="sign-up">
+          <fieldset>
+            <legend>Sign up!</legend>
+            <input type="text" name="credentials[email]" value="" placeholder="email">
+            <input type="password" name="credentials[password]" value="" placeholder="password">
+            <input type="password" name="credentials[password_confirmation]" placeholder="password confirmation">
+            <input type="submit" name="submit" value="Sign up!">
+          </fieldset>
+        </form>
+      </a></li>
     </ul>
   </header>
   <div class= "board">
