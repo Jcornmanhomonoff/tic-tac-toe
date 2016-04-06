@@ -12,7 +12,7 @@ body {
 //   margin: 0 auto;
 // }*/
 
-.holder {
+.board {
   align-content: center;
   justify-content: center;
 }
@@ -25,7 +25,7 @@ body {
   margin: 10px;
   width: 100px;
 }
-// 
+//
 // .top-row div,
 // .center-row div,
 // .bottom-row div {
@@ -36,6 +36,14 @@ body {
 //   margin: 10px;
 //   width: 100px;
 // }
+
+.player-x {
+  background: $black;
+}
+
+.player-o {
+  background: #234456;
+}
 
 .navigation {
   background: $deepskyblue;
