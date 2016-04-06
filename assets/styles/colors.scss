@@ -4,6 +4,8 @@ $white: #fff;
 $navcolor: rgba(255, 255, 255, .3);
 $navborder: rgba(0, 0, 0, .1);
 $black: #000;
+$tan: #d2b48c;
+$navy: #234456;
 
 //takes in color, %, and returns mix with white to lighten
 @function tint($color, $percentage) {

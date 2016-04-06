@@ -6,7 +6,7 @@ let players = ['player-x', 'player-o'];
 let player = '';
 
 
-//counts clicks
+//counts clicks & alternates players
 $('.available').on('click', function(){
   let currentCell = $(this);
     turnClick++;
@@ -15,17 +15,22 @@ $('.available').on('click', function(){
     } else {
       player = players[1];
     }
+    // if (currentCell.hasClass('player')) {
+    //   return turnClick.size;
+    // }
 });
 
-//changes block color on click & alternates player
-$('.available').on('click', function(){
+//changes block color on click & adds player class (x or o)
+$('.box').on('click', function(){
   let currentCell = $(this);
-  currentCell.removeClass('available');
-  currentCell.addClass('player');
+  if (currentCell.hasClass('available')) {
+    currentCell.removeClass('available');
+    currentCell.addClass('player');
   if (player === 'player-x') {
     currentCell.addClass('player-x');
   }else {
     currentCell.addClass('player-o');
     }
+  }
   }
 );
