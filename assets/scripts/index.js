@@ -1,6 +1,10 @@
 'use strict';
 
 const winnerFunction = require('./winner.js');
+const authEvents = require('./auth/events.js');
+$(() => {
+
+authEvents.addHandlers();
 
 //SUB-MENU
 
@@ -40,8 +44,11 @@ $('.box').on('click', function(){
     }else {
       currentCell.addClass('player-o');
     }
-    // winnerFunction.winner();
+    winnerFunction.winnerX();
     turnClick++;
     console.log(turnClick);
   }
+
+
+});
 });
