@@ -64,9 +64,10 @@ $('.box').on('click', function(){
     }else {
       currentCell.addClass('player-o');
     }
-    boardWinner(player);
+    boardWinner(gameBoard);
     turnClick++;
     console.log(turnClick);
+    console.log(gameBoard);
   }
 
 });
