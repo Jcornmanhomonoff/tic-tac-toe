@@ -55,10 +55,21 @@ const changePassword = (success, failure, data) => {
   .fail(failure);
   };
 
+const createGame = (success, failure, data) => {
+  $.ajax({
+    method: 'POST',
+    url: app.api + '/games',
+    data,
+    headers: {
+      Authorization: 'Token token='+ app.user.token,
+    }
+  });
+};
 
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
+  createGame,
 };
