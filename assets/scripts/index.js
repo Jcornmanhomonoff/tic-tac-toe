@@ -22,19 +22,17 @@ let turnClick = 0;
 let players = ['player-x', 'player-o'];
 let player = '';
 
-//counts clicks & alternates players
-$('.available').on('click', function(){
-  let currentCell = $(this);
-    if (turnClick % 2 === 0) {
-      player = players[0];
-    } else {
-      player = players[1];
-    }
-});
 
 //INPUTS X OR O INTO BLANK ARRAY WHEN CLICKED
 
 let gameBoard = ['', '', '', '', '', '', '', '', '',];
+
+
+const tieGame = function(gameBoard){
+  if (turnClick >= 9){
+    console.log('Tie! Start New Game!');
+  }
+};
 
 const boardWinner = function(gameBoard) {
   let win = false;
@@ -53,9 +51,18 @@ const boardWinner = function(gameBoard) {
     }
   };
 
+
 //changes block color on click & adds player class (x or o)
-$('.box').on('click', function(){
+//counts clicks & alternates players
+$('.available').on('click', function(){
   let currentCell = $(this);
+$('.box').on('click', function(){
+  if (turnClick % 2 === 0) {
+    player = players[0];
+  } else {
+    player = players[1];
+  }
+  // let currentCell = $(this);
   if (currentCell.hasClass('available')) {
     currentCell.removeClass('available');
     currentCell.addClass(player);
@@ -64,11 +71,16 @@ $('.box').on('click', function(){
     }else {
       currentCell.addClass('player-o');
     }
-    boardWinner(gameBoard);
+    currentCell.text(player);
+    $(this).data('gameBoard', player);
+    let attribute = $(this).attr('id');
+    gameBoard[attribute] = player;
     turnClick++;
+    boardWinner(gameBoard);
+    tieGame(gameBoard);
     console.log(turnClick);
     console.log(gameBoard);
   }
-
+});
 });
 });
