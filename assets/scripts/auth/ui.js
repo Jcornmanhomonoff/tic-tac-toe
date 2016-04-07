@@ -13,7 +13,7 @@ const signOutSuccess = () => {
 };
 
 const createGameSuccess = (data) => {
-  app.game = data.game;
+  app.gameID = data.game.id;
   console.log(data);
   console.log(app);
 };
@@ -32,4 +32,5 @@ module.exports = {
   signInSuccess,
   signOutSuccess,
   createGameSuccess,
+  app,
 };

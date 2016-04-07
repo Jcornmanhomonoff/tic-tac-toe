@@ -6,6 +6,8 @@
 // };
 
 const app = require('../app-data.js');
+const ui = require('./ui.js');
+
 
 const signUp = (success, failure, data) => {
   // debugger;
@@ -58,7 +60,7 @@ const changePassword = (success, failure, data) => {
 const createGame = (success, failure, data) => {
   $.ajax({
     method: 'POST',
-    url: app.api + '/games/' + app.user.id,
+    url: app.api + '/games',
     data,
     headers: {
       Authorization: 'Token token='+ app.user.token,
@@ -79,15 +81,23 @@ const joinGame = (success, failure, data) => {
   .fail(failure);
 };
 
-const updateGame = (success, failure, data) => {
+const updateGame = (success, failure) => {
   // debugger;
   $.ajax({
     method:'PATCH',
-    url: app.api  + '/games/'+ app.user.id,
-    data: data,
+    url: app.api  + '/games/' + ui.app.gameID,
     headers: {
       Authorization: 'Token token='+ app.user.token,
     },
+    data: {
+      "game": {
+        "cell": {
+          "index": app.index,
+          "value": app.value,
+        },
+        "over": false
+      }
+    }
   })
   .done(success)
   .fail(failure);

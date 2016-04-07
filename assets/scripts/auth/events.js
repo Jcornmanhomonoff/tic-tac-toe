@@ -32,8 +32,7 @@ const addHandlers = () => {
   });
   $('#create-game').on('click', function (event){
     event.preventDefault();
-    let data = "data";
-    authApi.createGame(authUi.success, authUi.failure, data);
+    authApi.createGame(authUi.createGameSuccess, authUi.failure);
   });
 };
 

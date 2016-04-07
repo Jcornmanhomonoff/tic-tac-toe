@@ -1,6 +1,11 @@
 'use strict';
 
 const authEvents = require('./auth/events.js');
+const app = require('./app-data.js');
+const api = require('./auth/api.js');
+const ui = require('./auth/ui.js');
+// const authApi = require('./auth/api.js');
+// const authUi = require('./auth/ui.js');
 $(() => {
 
 authEvents.addHandlers();
@@ -23,6 +28,7 @@ let players = ['player-x', 'player-o'];
 let player = '';
 
 let win = false;
+
 
 //INPUTS X OR O INTO BLANK ARRAY WHEN CLICKED
 
@@ -59,12 +65,14 @@ const tieGame = function(){
 //counts clicks & alternates players
 $('.box').on('click', function(){
   let currentCell = $(this);
+  // debugger;
+  console.log(currentCell);
   if (turnClick % 2 === 0) {
     player = players[0];
   } else {
     player = players[1];
   }
-  // let currentCell = $(this);
+    // let currentCell = $(this);
   if (currentCell.hasClass('available')) {
     currentCell.removeClass('available');
     currentCell.addClass(player);
@@ -78,10 +86,16 @@ $('.box').on('click', function(){
     let attribute = $(this).attr('id');
     gameBoard[attribute] = player;
     turnClick++;
+    app.index = $(this).attr('id');
+    app.value = player;
+    api.updateGame(ui.success, ui.failure);
+    // console.log(authApi.updateGame());
     boardWinner(gameBoard);
     tieGame(turnClick);
-    console.log(turnClick);
-    console.log(gameBoard);
+
+
+    // console.log(turnClick);
+    // console.log(gameBoard);
   }
 });
 });
