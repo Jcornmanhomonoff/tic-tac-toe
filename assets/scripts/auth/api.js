@@ -58,7 +58,7 @@ const changePassword = (success, failure, data) => {
 const createGame = (success, failure, data) => {
   $.ajax({
     method: 'POST',
-    url: app.api + '/games',
+    url: app.api + '/games/' + app.user.id,
     data,
     headers: {
       Authorization: 'Token token='+ app.user.token,
@@ -68,10 +68,62 @@ const createGame = (success, failure, data) => {
   .fail(failure);
 };
 
+const joinGame = (success, failure, data) => {
+  // debugger;
+  $.ajax({
+    method:'PATCH',
+    url: app.api  + '/games/',
+    data,
+  })
+  .done(success)
+  .fail(failure);
+};
+
+const updateGame = (success, failure, data) => {
+  // debugger;
+  $.ajax({
+    method:'PATCH',
+    url: app.api  + '/games/'+ app.user.id,
+    data: data,
+    headers: {
+      Authorization: 'Token token='+ app.user.token,
+    },
+  })
+  .done(success)
+  .fail(failure);
+};
+
+// const getUser = (success, failure, data) => {
+//   // debugger;
+//   $.ajax({
+//     method:'GET',
+//     url: app.api  + '/games/'+ app.user.id,
+//     data: data,
+//     headers: {
+//       Authorization: 'Token token='+ app.user.token,
+//     },
+//   })
+//   .done(success)
+//   .fail(failure);
+// };
+
+// const  = (success, failure, data) => {
+//   // debugger;
+//   $.ajax({
+//     method:'PATCH',
+//     url: app.api  + '/games/'+ app.user.id,
+//     data,
+//   })
+//   .done(success)
+//   .fail(failure);
+// };
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
   createGame,
+  joinGame,
+  updateGame,
 };
