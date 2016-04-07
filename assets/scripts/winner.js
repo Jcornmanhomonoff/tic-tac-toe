@@ -1,24 +1,26 @@
 'use strict';
 //
-const xANDo = require('./index.js');
+// const xANDo = require('./index.js');
 //
 
 let gameBoard = ['', '', '', '', '', '', '', '', '',];
 
-let boardWinner = function(player) {
-    if (player === gameBoard[0] && player === gameBoard[1] && player === gameBoard[2] ||
-        player === gameBoard[3] && player === gameBoard[4] && player === gameBoard[5] ||
-        player === gameBoard[6] && player === gameBoard[7] && player === gameBoard[8] ||
-        player === gameBoard[0] && player === gameBoard[3] && player === gameBoard[6] ||
-        player === gameBoard[1] && player === gameBoard[4] && player === gameBoard[7] ||
-        player === gameBoard[2] && player === gameBoard[5] && player === gameBoard[8] ||
-        player === gameBoard[0] && player === gameBoard[4] && player === gameBoard[8] ||
-        player === gameBoard[2] && player === gameBoard[4] && player === gameBoard[6]){
-      return player;
-    } else{
-      return false;
+const boardWinner = function(gameBoard) {
+  let win = false;
+    if (xANDo.player === gameBoard[0] && xANDo.player === gameBoard[1] && xANDo.player === gameBoard[2] ||
+        xANDo.player === gameBoard[3] && xANDo.player === gameBoard[4] && xANDo.player === gameBoard[5] ||
+        xANDo.player === gameBoard[6] && xANDo.player === gameBoard[7] && xANDo.player === gameBoard[8] ||
+        xANDo.player === gameBoard[0] && xANDo.player === gameBoard[3] && xANDo.player === gameBoard[6] ||
+        xANDo.player === gameBoard[1] && xANDo.player === gameBoard[4] && xANDo.player === gameBoard[7] ||
+        xANDo.player === gameBoard[2] && xANDo.player === gameBoard[5] && xANDo.player === gameBoard[8] ||
+        xANDo.player === gameBoard[0] && xANDo.player === gameBoard[4] && xANDo.player === gameBoard[8] ||
+        xANDo.player === gameBoard[2] && xANDo.player === gameBoard[4] && xANDo.player === gameBoard[6]){
+          console.log("You win " + xANDo.player);
+          win = true;
+          $('.box').off('click');
     }
-};
+  };
+
 
 //NEED TO CHANGE WHAT PLAYER EQUAL TO
 

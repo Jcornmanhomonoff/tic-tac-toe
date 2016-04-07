@@ -1,6 +1,5 @@
 'use strict';
 
-const winnerFunction = require('./winner.js');
 const authEvents = require('./auth/events.js');
 $(() => {
 
@@ -33,6 +32,27 @@ $('.available').on('click', function(){
     }
 });
 
+//INPUTS X OR O INTO BLANK ARRAY WHEN CLICKED
+
+let gameBoard = ['', '', '', '', '', '', '', '', '',];
+
+const boardWinner = function(gameBoard) {
+  let win = false;
+  // console.log(player);
+    if (player === gameBoard[0] && player === gameBoard[1] && player === gameBoard[2] ||
+        player === gameBoard[3] && player === gameBoard[4] && player === gameBoard[5] ||
+        player === gameBoard[6] && player === gameBoard[7] && player === gameBoard[8] ||
+        player === gameBoard[0] && player === gameBoard[3] && player === gameBoard[6] ||
+        player === gameBoard[1] && player === gameBoard[4] && player === gameBoard[7] ||
+        player === gameBoard[2] && player === gameBoard[5] && player === gameBoard[8] ||
+        player === gameBoard[0] && player === gameBoard[4] && player === gameBoard[8] ||
+        player === gameBoard[2] && player === gameBoard[4] && player === gameBoard[6]){
+          console.log("You win " + player);
+          win = true;
+          $('.box').off('click');
+    }
+  };
+
 //changes block color on click & adds player class (x or o)
 $('.box').on('click', function(){
   let currentCell = $(this);
@@ -44,11 +64,10 @@ $('.box').on('click', function(){
     }else {
       currentCell.addClass('player-o');
     }
-    winnerFunction.winnerX();
+    boardWinner(player);
     turnClick++;
     console.log(turnClick);
   }
-
 
 });
 });
