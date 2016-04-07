@@ -25,7 +25,7 @@ const addHandlers = () => {
     event.preventDefault();
     authApi.changePassword(authUi.success, authUi.failure, data);
   });
-  $('#create-game').on('submit', function (event){
+  $('#create-game').on('click', function (event){
     event.preventDefault();
     let data = "data";
     authApi.createGame(authUi.success, authUi.failure, data);

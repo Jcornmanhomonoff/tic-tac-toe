@@ -62,8 +62,10 @@ const createGame = (success, failure, data) => {
     data,
     headers: {
       Authorization: 'Token token='+ app.user.token,
-    }
-  });
+    },
+  })
+  .done(success)
+  .fail(failure);
 };
 
 module.exports = {
