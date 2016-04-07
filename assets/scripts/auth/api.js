@@ -42,9 +42,23 @@ const signIn = (success, failure, data) => {
   .fail(failure);
 };
 
+const changePassword = (success, failure, data) => {
+  $.ajax({
+    method: 'PATCH',
+    url: app.api + '/change-password/' + app.user.id,
+    data,
+    headers: {
+      Authorization: 'Token token='+ app.user.token,
+    },
+  })
+  .done(success)
+  .fail(failure);
+  };
+
 
 module.exports = {
   signUp,
   signIn,
   signOut,
+  changePassword,
 };

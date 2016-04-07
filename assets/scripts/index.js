@@ -27,13 +27,6 @@ let player = '';
 
 let gameBoard = ['', '', '', '', '', '', '', '', '',];
 
-
-const tieGame = function(gameBoard){
-  if (turnClick >= 9){
-    console.log('Tie! Start New Game!');
-  }
-};
-
 const boardWinner = function(gameBoard) {
   let win = false;
   // console.log(player);
@@ -50,6 +43,15 @@ const boardWinner = function(gameBoard) {
           $('.box').off('click');
     }
   };
+
+//CHECKS FOR TIE GAME
+const tieGame = function(gameBoard){
+  let tie = false;
+  if (turnClick === 9 && boardWinner === false){
+    tie = true;
+    console.log('Tie! Start New Game!');
+  }
+};
 
 
 //changes block color on click & adds player class (x or o)
@@ -71,7 +73,7 @@ $('.box').on('click', function(){
     }else {
       currentCell.addClass('player-o');
     }
-    currentCell.text(player);
+    // currentCell.text(player);
     $(this).data('gameBoard', player);
     let attribute = $(this).attr('id');
     gameBoard[attribute] = player;
