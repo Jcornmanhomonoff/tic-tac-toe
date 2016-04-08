@@ -45,7 +45,7 @@ const boardWinner = function(gameBoard) {
         player === gameBoard[2] && player === gameBoard[5] && player === gameBoard[8] ||
         player === gameBoard[0] && player === gameBoard[4] && player === gameBoard[8] ||
         player === gameBoard[2] && player === gameBoard[4] && player === gameBoard[6]){
-          console.log("You win " + player);
+          $('#Winner').text("You win " + player);
           win = true;
           $('.box').off('click');
     }

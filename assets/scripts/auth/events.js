@@ -23,7 +23,7 @@ const addHandlers = () => {
   // });
   $('#all-games').on('click', function (event) {
     event.preventDefault();
-    authApi.allGames(authUi.success, authUi.failure);
+    authApi.allGames(authUi.allGamesSuccess, authUi.failure);
   });
   $('#sign-out').on('submit', function (event) {
     event.preventDefault();

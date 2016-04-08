@@ -18,6 +18,10 @@ const createGameSuccess = (data) => {
   console.log(app);
 };
 
+const allGamesSuccess = (data) => {
+  $('#history').text(data.games.length);
+};
+
 const success = (data) => {
   console.log(data);
 };
@@ -32,5 +36,6 @@ module.exports = {
   signInSuccess,
   signOutSuccess,
   createGameSuccess,
+  allGamesSuccess,
   app,
 };
