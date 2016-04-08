@@ -21,6 +21,10 @@ const addHandlers = () => {
   //   event.preventDefault();
   //   authApi.signIn(authUi.signInSuccess, authUi.failure, data);
   // });
+  $('#all-games').on('click', function (event) {
+    event.preventDefault();
+    authApi.allGames(authUi.success, authUi.failure);
+  });
   $('#sign-out').on('submit', function (event) {
     event.preventDefault();
     authApi.signOut(authUi.signOutSuccess, authUi.failure);

@@ -103,6 +103,19 @@ const updateGame = (success, failure) => {
   .fail(failure);
 };
 
+const allGames = (success, failure) => {
+  // debugger;
+  $.ajax({
+    method:'GET',
+    url: app.api  + '/games',
+    headers: {
+      Authorization: 'Token token='+ app.user.token,
+    }
+  })
+  .done(success)
+  .fail(failure);
+};
+
 // const getUser = (success, failure, data) => {
 //   // debugger;
 //   $.ajax({
@@ -136,4 +149,5 @@ module.exports = {
   createGame,
   joinGame,
   updateGame,
+  allGames
 };
