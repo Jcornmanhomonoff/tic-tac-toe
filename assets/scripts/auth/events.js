@@ -16,11 +16,11 @@ const addHandlers = () => {
     event.preventDefault();
     authApi.signIn(authUi.signInSuccess, authUi.failure, data);
   });
-  $('#sign-in2').on('submit', function (event) {
-    let data = getFormFields(this);
-    event.preventDefault();
-    authApi.signIn(authUi.signInSuccess, authUi.failure, data);
-  });
+  // $('#sign-in2').on('submit', function (event) {
+  //   let data = getFormFields(this);
+  //   event.preventDefault();
+  //   authApi.signIn(authUi.signInSuccess, authUi.failure, data);
+  // });
   $('#sign-out').on('submit', function (event) {
     event.preventDefault();
     authApi.signOut(authUi.signOutSuccess, authUi.failure);
@@ -33,7 +33,10 @@ const addHandlers = () => {
   $('#create-game').on('click', function (event){
     event.preventDefault();
     authApi.createGame(authUi.createGameSuccess, authUi.failure);
-  });
+  $('div').removeClass('player-o').addClass('.available');
+  $('div').removeClass('player-x').addClass('.available');
+    }
+  );
 };
 
 
