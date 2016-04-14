@@ -77,7 +77,7 @@ webpackJsonp([0],[
 	    var tie = false;
 	    if (turnClick === 9 && win === false) {
 	      tie = true;
-	      $('#Winner').tex('Tie! Start New Game!');
+	      $('#Winner').text('Tie! Start New Game!');
 	    }
 	  };
 
